@@ -1,12 +1,16 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMessageBox
 from models.Modelo import SistemaBaseDatos, ControlCamara
+from models.dicom_model import DicomModel
+from models.nifti_model import NiftiModel
 from views.Vista import VentanaBienvenida, VentanaLogin, VentanaCamara, VentanaDashboard
 
 class Coordinador:
     def __init__(self):
         self.modelo_bd = SistemaBaseDatos()
         self.modelo_camara = ControlCamara()
+        self.modelo_dicom = DicomModel()
+        self.modelo_nifti = NiftiModel()
         self.v_bienvenida = VentanaBienvenida(self)
         self.v_login = VentanaLogin(self)
         self.v_camara = VentanaCamara(self)
